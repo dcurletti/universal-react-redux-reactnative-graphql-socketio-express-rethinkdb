@@ -15,7 +15,7 @@ module.exports = Object.assign({
   apiHost: process.env.APIHOST || 'localhost',
   apiPort: process.env.APIPORT,
   app: {
-    title: 'React Redux Example',
+    title: 'Stocks',
     description: 'All the modern best practices in one example.',
     head: {
       titleTemplate: 'React Redux Example: %s',
@@ -32,6 +32,9 @@ module.exports = Object.assign({
         {property: 'og:creator', content: '@erikras'},
         {property: 'og:image:width', content: '200'},
         {property: 'og:image:height', content: '200'}
+      ],
+      link: [
+        {'rel': 'stylesheet', 'href': 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css'}
       ]
     }
   },
