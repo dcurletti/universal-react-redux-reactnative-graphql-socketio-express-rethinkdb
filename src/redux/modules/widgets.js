@@ -6,15 +6,22 @@ const EDIT_STOP = 'redux-example/widgets/EDIT_STOP';
 const SAVE = 'redux-example/widgets/SAVE';
 const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
 const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
+const GET_SUCCESS = 'GET_SUCCESS';
 
 const initialState = {
   loaded: false,
   editing: {},
-  saveError: {}
+  saveError: {},
+  test: undefined
 };
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
+    case GET_SUCCESS:
+      return {
+        ...state,
+        test: action.result
+      };
     case LOAD:
       return {
         ...state,
@@ -102,6 +109,18 @@ export function save(widget) {
     })
   };
 }
+
+export function loadSymbol(symbol) {
+  return {
+    types: ['X', GET_SUCCESS, 'Y'],
+    promise: (client) => client.get('/loadSymbol', {
+      params: {
+        symbol: symbol
+      }
+    })
+  };
+}
+
 
 export function editStart(id) {
   return { type: EDIT_START, id };
