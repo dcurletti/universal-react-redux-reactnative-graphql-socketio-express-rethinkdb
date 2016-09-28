@@ -110,12 +110,12 @@ export function save(widget) {
   };
 }
 
-export function loadSymbol(symbol) {
+export function loadSymbol(query) {
   return {
     types: ['X', GET_SUCCESS, 'Y'],
     promise: (client) => client.get('/loadSymbol', {
       params: {
-        symbol: symbol
+        query: query
       }
     })
   };

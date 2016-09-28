@@ -7,12 +7,7 @@ import {mapUrl} from 'utils/url.js';
 import PrettyError from 'pretty-error';
 import http from 'http';
 import SocketIo from 'socket.io';
-import Quandl from "quandl";
 
-var quandl = new Quandl({
-  auth_token: "psu11gxsvvLrhdVeaz99",
-  api_version: 3
-});
 
 const pretty = new PrettyError();
 const app = express();
@@ -63,23 +58,6 @@ const messageBuffer = new Array(bufferSize);
 let messageIndex = 0;
 
 if (config.apiPort) {
-
-  quandl.dataset({
-    source: "WIKI",
-    table: "FB"
-  }, {
-    order: "asc",
-    exclude_column_names: true,
-    // Notice the YYYY-MM-DD format
-    start_date: "2015-01-30",
-    end_date: "2016-01-29",
-    column_index: 4
-  }, function(err, response){
-    if(err)
-      throw err;
-
-    console.log(response);
-  });
 
   const runnable = app.listen(config.apiPort, (err) => {
     if (err) {
