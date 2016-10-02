@@ -1,14 +1,14 @@
 {
-  "name": "react-redux-universal-hot-example",
-  "description": "Example of an isomorphic (universal) webapp using react redux and hot reloading",
-  "author": "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
+  "name": "lightning",
+  "description": "Example of a react-redux univeral web and mobile app",
+  "author": "Davide Curletti <curlettid@gmail.com> (http://github.com/dcurletti)",
   "license": "MIT",
-  "version": "0.9.0",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erikras/react-redux-universal-hot-example"
+    "url": "https://github.com/dcurletti/lightning"
   },
-  "homepage": "https://github.com/erikras/react-redux-universal-hot-example",
+  "homepage": "https://github.com/dcurletti/lightning",
   "keywords": [
     "react",
     "isomorphic",
@@ -19,6 +19,10 @@
     "react-hot-reloader",
     "redux",
     "starter",
+    "socket-io",
+    "react-native",
+    "rethinkdb",
+    "graphql",
     "boilerplate",
     "babel"
   ],
@@ -191,6 +195,6 @@
     "webpack-hot-middleware": "^2.5.0"
   },
   "engines": {
-    "node": "5.6.0"
+    "node": "6.3.0"
   }
 }
