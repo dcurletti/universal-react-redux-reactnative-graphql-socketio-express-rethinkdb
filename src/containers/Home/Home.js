@@ -4,20 +4,21 @@ import {connect} from 'react-redux';
 import {CounterButton, GithubButton} from 'components';
 import Helmet from 'react-helmet';
 import {asyncConnect} from 'redux-async-connect';
-import {loadSymbol} from 'redux/modules/widgets';
+import {loadSymbol, loadGraphql} from 'redux/modules/widgets';
 
 
 @connect(
   state => ({
     widgets: state.widgets
   }),
-  {loadSymbol}
+  {loadSymbol, loadGraphql}
 )
 export default class Home extends Component {
   text = null;
 
   _onSubmit(e) {
     e.preventDefault();
+    this.props.loadGraphql();
     this.props.loadSymbol(this.text);
   }
 

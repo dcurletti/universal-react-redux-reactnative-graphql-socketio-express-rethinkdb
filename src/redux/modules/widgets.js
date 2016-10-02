@@ -121,11 +121,22 @@ export function loadSymbol(query) {
   };
 }
 
+export function loadGraphql(query) {
+  return {
+    types: ['Z', GET_SUCCESS, 'Z'],
+    promise: (client) => client.post('/graphql', {
+      params: {
+        query: `query { hello }`
+      }
+    })
+  };
+}
+
 
 export function editStart(id) {
-  return { type: EDIT_START, id };
+  return {type: EDIT_START, id};
 }
 
 export function editStop(id) {
-  return { type: EDIT_STOP, id };
+  return {type: EDIT_STOP, id};
 }

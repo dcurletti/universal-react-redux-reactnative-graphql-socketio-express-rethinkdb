@@ -7,6 +7,32 @@ import {mapUrl} from 'utils/url.js';
 import PrettyError from 'pretty-error';
 import http from 'http';
 import SocketIo from 'socket.io';
+import graphqlHTTP from 'express-graphql';
+import {
+  graphql,
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString
+} from 'graphql';
+
+var schema = new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: 'RootQueryType',
+    fields: {
+      hello: {
+        type: GraphQLString,
+        resolve() {
+          return 'world';
+        }
+      }
+    }
+  })
+});
+
+/*
+ var root = {hello: () => 'Hello world!'};
+ */
+
 
 
 const pretty = new PrettyError();
@@ -17,11 +43,20 @@ const server = new http.Server(app);
 const io = new SocketIo(server);
 io.path('/ws');
 
+
+
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  // rootValue: root,
+  graphiql: true,
+}));
+
+
 app.use(session({
   secret: 'react and redux rule!!!!',
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 60000 }
+  cookie: {maxAge: 60000}
 }));
 app.use(bodyParser.json());
 
