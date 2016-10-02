@@ -5,6 +5,8 @@ import {
   GraphQLString
 } from 'graphql';
 
+import User from '../models/User';
+
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'RootQueryType',
@@ -12,7 +14,13 @@ export default new GraphQLSchema({
       hello: {
         type: GraphQLString,
         resolve() {
-          return 'world';
+          var user = new User({});
+
+          user.save().then(result => {
+            return result;
+          }).error(err => {console.log(err)});
+
+          return 'meow'
         }
       }
     }
