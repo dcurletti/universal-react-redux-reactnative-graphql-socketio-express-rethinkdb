@@ -1,6 +1,6 @@
 {
   "name": "lightning",
-  "description": "Example of a react-redux univeral web and mobile app",
+  "description": "Example of a react-redux univeral web and mobile app that includes Graphql, SocketIO, Express, Server Side Rendering and Rethinkdb.",
   "author": "Davide Curletti <curlettid@gmail.com> (http://github.com/dcurletti)",
   "license": "MIT",
   "version": "0.1.0",
