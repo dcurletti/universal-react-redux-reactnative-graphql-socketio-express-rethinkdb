@@ -1,7 +1,7 @@
 import Quandl from "quandl";
 
 const quandl = new Quandl({
-  auth_token: "psu11gxsvvLrhdVeaz99",
+  auth_token: "",
   api_version: 3
 });
 
