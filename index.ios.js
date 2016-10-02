@@ -15,16 +15,31 @@ import {
 } from 'react-native';
 import { Provider } from 'react-redux';
 
-import Store from './redux/store';
+import Store from './src/mobile/redux/store';
 
 // import App from './App';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class mobile extends Component {
   render() {
     return (
-      <Provider store={Store}>
+      <View>
         <Text>Hello</Text>
-      </Provider>
+      </View>
     );
   }
 }

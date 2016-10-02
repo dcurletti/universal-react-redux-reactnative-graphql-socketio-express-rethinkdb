@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 // import {persistStore, autoRehydrate} from 'redux-persist'
 // import immutableTransform from 'redux-persist-transform-immutable';
 // import reducers from '../../src/redux/modules/reducer';
-import clientMiddleware from '../../src/redux/middleware/clientMiddleware';
+import clientMiddleware from '../../redux/middleware/clientMiddleware';
 // import ApiClient from '../../src/helpers/ApiClient';
 //
 //
