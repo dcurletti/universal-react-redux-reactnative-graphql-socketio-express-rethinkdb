@@ -6,8 +6,20 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "immutable": "^3.8.1",
+    "multireducer": "^3.0.0",
     "react": "15.3.2",
-    "react-native": "0.34.1"
+    "react-native": "0.34.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.6",
+    "redux": "^3.6.0",
+    "redux-async-connect": "^1.0.0-rc4",
+    "redux-form": "^6.0.5",
+    "redux-persist": "3.5.0",
+    "redux-persist-transform-immutable": "^3.2.0",
+    "redux-thunk": "^2.1.0",
+    "superagent": "^2.3.0"
   },
   "devDependencies": {
     "babel-preset-react-native": "^1.9.0",

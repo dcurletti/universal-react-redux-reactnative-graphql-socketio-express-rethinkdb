@@ -13,15 +13,31 @@ var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools'));
 
 var babelrc = fs.readFileSync('./.babelrc');
-var babelrcObject = {};
+var babelrcObject = {
+  "presets": ["react", "es2015", "stage-0"],
 
-try {
-  babelrcObject = JSON.parse(babelrc);
-} catch (err) {
-  console.error('==>     ERROR: Error parsing your .babelrc.');
-  console.error(err);
-}
+  "plugins": [
+    "transform-runtime",
+    "add-module-exports",
+    "transform-decorators-legacy",
+    "transform-react-display-name"
+  ],
 
+  "env": {
+    "development": {
+      "plugins": [
+        "typecheck",
+        ["react-transform", {
+          "transforms": [{
+            "transform": "react-transform-catch-errors",
+            "imports": ["react", "redbox-react"]
+          }
+          ]
+        }]
+      ]
+    }
+  }
+};
 
 var babelrcObjectDevelopment = babelrcObject.env && babelrcObject.env.development || {};
 

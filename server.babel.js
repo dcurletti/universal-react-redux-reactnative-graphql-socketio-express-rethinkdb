@@ -1,15 +1,32 @@
 //  enable runtime transpilation to use ES6/7 in node
 
-var fs = require('fs');
+// var fs = require('fs');
+// var babelrc = fs.readFileSync('./.babelrc');
 
-var babelrc = fs.readFileSync('./.babelrc');
-var config;
+var babelrcObject = {
+  "presets": ["react", "es2015", "stage-0"],
 
-try {
-  config = JSON.parse(babelrc);
-} catch (err) {
-  console.error('==>     ERROR: Error parsing your .babelrc.');
-  console.error(err);
-}
+  "plugins": [
+    "transform-runtime",
+    "add-module-exports",
+    "transform-decorators-legacy",
+    "transform-react-display-name"
+  ],
 
-require('babel-register')(config);
+  "env": {
+    "development": {
+      "plugins": [
+        "typecheck",
+        ["react-transform", {
+          "transforms": [{
+            "transform": "react-transform-catch-errors",
+            "imports": ["react", "redbox-react"]
+          }
+          ]
+        }]
+      ]
+    }
+  }
+};
+
+require('babel-register')(babelrcObject);

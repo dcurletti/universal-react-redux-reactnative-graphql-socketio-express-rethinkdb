@@ -13,13 +13,18 @@ import {
   Text,
   View
 } from 'react-native';
+import { Provider } from 'react-redux';
+
+import Store from './redux/store';
+
+// import App from './App';
 
 class mobile extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <Provider store={Store}>
         <Text>Hello</Text>
-      </View>
+      </Provider>
     );
   }
 }
